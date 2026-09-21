@@ -2,6 +2,7 @@ package abacaxi;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
 
@@ -35,6 +36,51 @@ public class Main {
 		estados_brasileiros.add("Brasilia");
 		estados_brasileiros.add("Rondonia");
 		estados_brasileiros.add("Parana");
+		
+		Scanner teclado = new Scanner(System.in);
+		
+		System.out.println("Digite o nome de um estado");
+		String estado = teclado.next();
+		
+		Boolean verifica = false;
+		int i = 0, posicao = -1;
+		
+		for(String estadoBrasileiro : estados_brasileiros)
+		{
+			if(estadoBrasileiro.equals(estado))
+			{
+				verifica = true;
+			     posicao = i;
+			}	
+		}
+		
+		if(verifica)
+		{
+			 System.out.println("O estado já esta cadastrado na lista e está na posição"
+			            +posicao);
+		}
+		else
+		{
+			estados_brasileiros.add(estado);
+			mostraEstados(estados_brasileiros);
+		}
+		  
+		  teclado.close();
+		     
 	}
-
+	
+	public static void mostraEstados(List<String> estados_brasileiros)
+	{
+		  for(String estadoBrasileiro : estados_brasileiros)
+		  {
+			  System.out.println(estadoBrasileiro);
+		  }
+	}
+     
 }
+
+  
+  
+  
+  
+  
